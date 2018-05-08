@@ -2,10 +2,9 @@
   "name": "poly-do",
   "version": "1.0.0",
   "description": "PolyDo it is an testing app.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "author": "Arionit Misini",
   "license": "ISC",
