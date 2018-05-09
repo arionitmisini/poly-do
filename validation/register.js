@@ -27,8 +27,12 @@ module.exports = function validateRegisterInput(data){
         errors.username = "Username is required";
     }
 
-    if(Validator.isEmpty(data.email)){
+    if(!Validator.isEmpty(data.email)){
         errors.email = "Email is required";
+    }
+
+    if(!Validator.isEmail(data.email)){
+        errors.email = "Email is invalid";
     }
 
     if(Validator.isEmpty(data.password)){
@@ -39,12 +43,12 @@ module.exports = function validateRegisterInput(data){
         errors.password = "Password must be from 6 to 30 character";
     }
 
-    if(Validator.isEmpty(data.password2)){
-        errors.password2 = "Confirm password field is required";
+    if(!Validator.equals(data.password, data.password2)){
+        errors.password = "Password must match";
     }
 
-    if(Validator.isLength(data.password, data.password2)){
-        errors.password = "Password must match";
+    if(Validator.isEmpty(data.password2)){
+        errors.password2 = "Confirm password field is required";
     }
     
 
