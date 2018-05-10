@@ -4,9 +4,9 @@
   "description": "PolyDo it is an testing app.",
   "main": "app.js",
   "scripts": {
-    "client-intall":"npm install --prefix client",
+    "client-intall": "npm install --prefix client",
     "start": "nodemon server.js",
-    "client":"npm start --prefix client",
+    "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Arionit Misini",
@@ -21,6 +21,7 @@
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "react-router-dom": "^4.2.2",
     "validator": "^10.1.0"
   },
   "devDependencies": {
