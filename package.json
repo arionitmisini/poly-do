@@ -4,7 +4,10 @@
   "description": "PolyDo it is an testing app.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "client-intall":"npm install --prefix client",
+    "start": "nodemon server.js",
+    "client":"npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Arionit Misini",
   "license": "ISC",
