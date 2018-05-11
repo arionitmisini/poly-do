@@ -29,6 +29,7 @@ class Register extends Component {
         name: this.state.name,
         surname: this.state.surname,
         username: this.state.username,
+        email: this.state.email,
         password: this.state.password,
         password2: this.state.password2,
         date: this.state.date
