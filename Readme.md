@@ -1,9 +1,12 @@
 ## Technologies used
 
 ##### Front End
- - React
+ - ReactJS
+ - Bootstrap 4
  
 ##### Backend
+ - NodeJS
+ - ExpressJS
  - MongoDB
  - Mongoose (ORM)
  - Json Web Tokens (Authentication)
