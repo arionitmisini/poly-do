@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from "react-router-dom"
+import {connect} from "react-redux";
+import {registerUser} from "../../actions/authActions";
 
 class Register extends Component {
   constructor(){
@@ -32,14 +34,17 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
         password2: this.state.password2,
-        date: this.state.date
+        //Modify just hardcoded test
+        date: "222"
     };
 
-    console.log(newUser);
+    this.props.registerUser(newUser);
     
   }
 
   render() {
+    const{ error}=this.state;
+    
     return (
       <div>
         <div className="register">
@@ -83,4 +88,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default connect(null,{registerUser})(Register);
