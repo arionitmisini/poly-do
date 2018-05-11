@@ -51,7 +51,7 @@ router.post( '/', passport.authenticate('jwt', { session: false }),
     }
 
     const newTask = new Task({
-      tditle: req.body.title,
+      title: req.body.title,
       description: req.body.description,
       dueDate: req.body.dueDate,
     });
@@ -60,7 +60,7 @@ router.post( '/', passport.authenticate('jwt', { session: false }),
   }
 );
 
-// @route   DELETE api/posts/:id
+// @route   DELETE api/tasks/:id
 // @desc    Delete post
 // @access  Private
 router.delete('/:id',
