@@ -1,33 +1,26 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const objID = mongoose.Schema.Types.ObjectId;
 
 const schemaOptions = {
     timestamps: true,
     versionKey: false
 }
 
-//Create schema
-const UserSchema = new Schema({
+// Create schema
+const BoardSchema = new Schema({
     name: {
         type: String,
         required: true
     },
-    surname: {
+    description: {
         type: String,
         required: true
     },
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
+    userId: {
+        type: objID,
         required: true
     }
 }, schemaOptions);
 
-module.exports = User = mongoose.model("users", UserSchema);
+const Board = module.exports = mongoose.model("boards", BoardSchema);

@@ -1,21 +1,20 @@
 const router = require("express").Router()
-  , Task = require("../../models/Task")
+  , Board = require("../../models/Board")
   , passport = require("passport");
 
 // CREATE
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
   console.log('USERI', req.user);
 
-  const newTask = new Task({
+  const newBoard = new Board({
     name: req.body.name,
     description: req.body.description,
-    dueDate: new Date(req.body.dueDate),
-    boardId: req.body.boardId
+    userId: req.user._id
   });
 
-  newTask.save((task, err) => {
+  newBoard.save((board, err) => {
     if (!err) {
-      return res.json(task);
+      return res.json(newBoard);
     }
     res.json(err);
   });
@@ -25,19 +24,19 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 
 // READ ALL
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Task.find()
-    .then(tasks => {
-      res.json(tasks);
+  Board.find()
+    .then(boards => {
+      res.json(boards);
     })
     .catch(err => res.json(err));
 });
 
 // READ ONE
 router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Task.findById(req.params.id)
-    .then(task => res.json(task))
+  Board.findById(req.params.id)
+    .then(Board => res.json(Board))
     .catch(err =>
-      res.status(404).json({ noTaskFound: 'No Task found with that ID' })
+      res.status(404).json({ noBoardFound: 'No Board found with that ID' })
     );
 });
 
@@ -45,28 +44,26 @@ router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) 
 router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
 
   // Get fields
-  const updatedTaskData = {
+  const updatedBoardData = {
     name: req.body.name,
-    description: req.body.description,
-    dueDate: new Date(req.body.dueDate),
-    completed: req.body.completed,
-    taskId: req.body.boardId
+    description: req.body.description
   };
 
-  Task.findOneAndUpdate(
+  Board.findOneAndUpdate(
     { _id: req.params.id },
-    { $set: updatedTaskData },
+    { $set: updatedBoardData },
     { new: true }
-  ).then(updatedTask => res.json(updatedTask))
+  ).then(updatedBoard => res.json(updatedBoard))
     .catch(e => res.json(err));
 });
 
 // DELETE ONE
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Task.findByIdAndRemove(req.params.id)
+  Board.findByIdAndRemove(req.params.id)
     .then(success => {
       res.json({ success: true, msg: "Removed" })
     })
     .catch(err => res.status(404).json(err));
 });
+
 module.exports = router;

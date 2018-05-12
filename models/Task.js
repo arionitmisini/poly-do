@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const schemaOptions = {
+  timestamps: true,
+  versionKey: false
+}
+
+
 // Create Schema
 const TaskSchema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'users'
-  },
-  title: {
+  name: {
     type: String,
     required: true
   },
@@ -16,9 +18,19 @@ const TaskSchema = new Schema({
     required: true
   },
   dueDate: {
-        type: String,
-        required: true
-      }
-});
+    type: Date,
+    required: true
+  },
+  completed: {
+    type: Boolean,
+    default: false
+  },
+  subTasks: {
+    type: []
+  },
+  boardId: {
+    type: Schema.Types.ObjectId
+  }
+}, schemaOptions);
 
 module.exports = Post = mongoose.model('task', TaskSchema);
