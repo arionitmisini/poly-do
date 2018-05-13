@@ -7,8 +7,11 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const tasks = require("./routes/api/tasks");
 const boards = require("./routes/api/board");
+const cors = require("cors");
 
 const app = express();
+
+app.use(cors())
 
 app.use(morgan('combined'));
 
