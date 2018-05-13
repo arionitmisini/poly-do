@@ -11,6 +11,7 @@ import Dashboard from "./components/Dashboard";
 import Board from "./components/layout/Board";
 import Boards from "./components/layout/Boards";
 import CreateBoard from "./components/layout/CreateBoard";
+import BoardView from "./components/layout/BoardView";
 import './App.css';
 
 
@@ -27,6 +28,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/dashboard/board/create" component={CreateBoard} />
+              <Route exact path="/dashboard/board/:id" component={BoardView} />
             </div>
             <Footer />
           </div>

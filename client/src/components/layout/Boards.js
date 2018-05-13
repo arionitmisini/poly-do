@@ -27,7 +27,7 @@ class Boards extends Component {
             <div class="row">
                 {
                     this.state.boards.map((boardObj, index) => {
-                        return <Board key={index} name={boardObj.name} description={boardObj.description} />
+                        return <Board key={index} boardId={boardObj._id} name={boardObj.name} description={boardObj.description} />
                     })
                 }
             </div>
