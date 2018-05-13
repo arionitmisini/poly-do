@@ -10,7 +10,7 @@ import Register from "./components/auth/Register";
 import Dashboard from "./components/Dashboard";
 import Board from "./components/layout/Board";
 import Boards from "./components/layout/Boards";
-
+import CreateBoard from "./components/layout/CreateBoard";
 import './App.css';
 
 
@@ -20,12 +20,13 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar />
+            <Navbar {...this.props} />
             <Route exact path="/" component={Landing} />
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/dashboard/board/create" component={CreateBoard} />
             </div>
             <Footer />
           </div>

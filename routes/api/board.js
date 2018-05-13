@@ -24,7 +24,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 
 // READ ALL
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Board.find()
+  Board.find({}).sort({ createdAt: "descending" })
     .then(boards => {
       res.json(boards);
     })
