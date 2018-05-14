@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
-import { connect } from "react-redux";
-import { registerUser } from "../../actions/authActions";
 import AuthService from '../AuthService';
 
 class Register extends Component {
@@ -45,9 +43,6 @@ class Register extends Component {
       console.log(res);
       return Promise.resolve(res);
     })
-
-    // this.props.registerUser(newUser);
-
   }
 
   render() {
@@ -96,4 +91,4 @@ class Register extends Component {
   }
 }
 
-export default connect(null, { registerUser })(Register);
+export default Register;

@@ -33,10 +33,6 @@ class BoardView extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    close() {
-        this.setState({ showModal: false });
-    }
-
     onSubmit(e) {
         e.preventDefault();
 
@@ -109,7 +105,7 @@ class BoardView extends Component {
                                     </form>
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" id="hideTaskModal" className="btn btn-secondary" data-dismiss="modal" >Close</button>
+                                    <button type="button" id="hideTaskModal" className="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>Submit </button>
                                 </div>
                             </div>
@@ -117,7 +113,6 @@ class BoardView extends Component {
                     </div>
                 </div>
             </div>
-
         )
     }
 

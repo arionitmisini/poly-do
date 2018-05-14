@@ -18,16 +18,24 @@ app.use(morgan('combined'));
 // DB Config
 const db = require("./config/keys").mongoURI;
 
+mongoose.Promise = global.Promise;
+mongoose.connect(db)
+    .then(function () {
+        console.log('Successfully connected to MongoDB!')
+    }).catch(function (err) {
+        console.error(err)
+    });
+
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect(db).then(() => {
-    console.log("connected to DB");
-}).catch(err => {
-    console.log(err);
-})
+// mongoose.connect(db).then(() => {
+//     console.log("connected to DB");
+// }).catch(err => {
+//     console.log(err);
+// })
 
 // Passport middleware 
 app.use(passport.initialize());

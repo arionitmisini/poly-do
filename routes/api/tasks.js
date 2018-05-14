@@ -1,6 +1,7 @@
 const router = require("express").Router()
   , Task = require("../../models/Task")
-  , passport = require("passport");
+  , passport = require("passport")
+  , objectId = require('mongoose').Types.ObjectId;
 
 // CREATE
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -24,8 +25,8 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 });
 
 // READ ALL
-router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Task.find()
+router.get('/:boardId', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Task.find({ boardId: objectId(req.params.boardId) })
     .then(tasks => {
       res.json(tasks);
     })
