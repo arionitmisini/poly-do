@@ -37,7 +37,17 @@ img {
 .form-control::placeholder {
     color: #bbb !important;
   }
-  .create-board-btn{
-    margin-left: 2px;
-  }
-  
+.create-board-btn{
+  margin-left: 2px;
+}
+.actions {
+  float: right;
+} 
+
+.bigger {
+  font-size: 20px!important;
+}
+
+.bigger:hover {
+  cursor: pointer;
+}

@@ -7,6 +7,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from "./components/Dashboard";
 import BoardView from "./components/layout/BoardView";
+import TaskView from "./components/layout/TaskView";
 import './App.css';
 
 
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/dashboard/board/:id" component={BoardView} />
+            <Route exact path="/dashboard/tasks/:id" component={TaskView} />
           </div>
           <Footer />
         </div>

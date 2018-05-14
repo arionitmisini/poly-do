@@ -71,10 +71,9 @@ class Dashboard extends Component {
                 <div className="App-header mb-4">
                     <h2 style={{ display: 'inline' }}>Boards</h2>
                     <button style={{ float: 'right' }} type="button" className="btn btn-primary create-board-btn" data-toggle="modal" data-target="#boardModal">Create board</button>
-                    <button style={{ float: 'right' }} type="button" className="btn btn-primary" onClick={this.handleLogout.bind(this)}>Logout</button>
                 </div>
 
-                <div class="row">
+                <div className="row">
                     {
                         this.state.boards.map((boardObj, index) => {
                             return <Board key={index} boardId={boardObj._id} name={boardObj.name} description={boardObj.description} />

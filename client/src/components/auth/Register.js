@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
 import AuthService from '../AuthService';
 
 class Register extends Component {
@@ -46,8 +45,6 @@ class Register extends Component {
   }
 
   render() {
-    const { error } = this.state;
-
     return (
       <div>
         <div className="register">
